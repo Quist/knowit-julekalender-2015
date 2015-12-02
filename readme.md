@@ -1,6 +1,7 @@
 ### Knowit Julekalender 2015 - Solutions
+[Knowit Julekalender](https://julekalender.knowit.no)
 
-_24 days.. 24 problems.. 24 programming languages!_
+_24 days.. 24 solutions.. 24 programming languages!_
 
 
 | Day        | Programming Language |
