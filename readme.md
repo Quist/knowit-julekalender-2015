@@ -6,6 +6,7 @@ _24 days.. 24 solutions.. 24 programming languages!_
 
 | Day        | Programming Language |
 | ------------- |:-------------:|
-| 1     | bash      | 
-| 2     | Ruby      |
-| 3     | ??        |
+| 1     | bash          |
+| 2     | Ruby          |
+| 3     | Common Lisp   |
+| 4     | ???           |
