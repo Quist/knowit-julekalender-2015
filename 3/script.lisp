@@ -25,9 +25,9 @@
 )
 
 (defun calculate()
-    (rem
+    (floor
         (days-between 1 2015 256)
-        7
+        (* 364 7)
     )
 )
 
