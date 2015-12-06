@@ -10,4 +10,4 @@ _24 days.. 24 solutions.. 24 programming languages!_
 | 2     | Ruby          |
 | 3     | Common Lisp   |
 | 4     | PHP           |
-| 5     | ???           |
+| 5     | Rust          |
