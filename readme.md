@@ -11,3 +11,4 @@ _24 days.. 24 solutions.. 24 programming languages!_
 | 3     | Common Lisp   |
 | 4     | PHP           |
 | 5     | Rust          |
+| 6     | Matlab        |
