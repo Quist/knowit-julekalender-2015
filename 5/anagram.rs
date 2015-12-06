@@ -2,18 +2,52 @@ use std::io::prelude::*;
 use std::fs::File;
 use std::env;
 use std::process;
-use std::io;
-use std::path::Path;
 
-fn read_file<P>(filename : P) -> Result<io::Lines<io::BufReader<File>>, io::Error> where P: AsRef<Path>{
-    let file = try!(File::open(filename));
-    Ok(io::BufReader::new(file).lines())
+fn read_file(filename : &str) -> Vec<String>{
+    let mut file = match File::open(filename) {
+        Ok(file) => file,
+        Err(_) => panic!("no such file"),
+    };
+    let mut file_contents = String::new();
+    file.read_to_string(&mut file_contents)
+        .ok()
+        .expect("failed to read!");
+    let lines: Vec<String> = file_contents.split("\n")
+        .map(|s: &str| s.to_string())
+        .collect();
+    lines
 }
 
-fn print(words : Vec<&str>) {
+fn count_anagrams(words : Vec<String>) ->u32{
+    let word_length = words.len();
+    let mut sorted_words : Vec<String> = Vec::with_capacity(word_length);
+    
     for word in words {
-        println!("{}", word);
+        let mut a: Vec<&str> = word.split("").collect();
+        a.sort();
+        sorted_words.push(a.join(""));
     }
+
+    let mut number_of_anagrams = 0;
+    
+    sorted_words.sort();
+    for i in 0..word_length {
+        if i == 0 {
+            if sorted_words[i] == sorted_words[i + 1] {
+                number_of_anagrams+= 1;
+            }
+        } else if i == word_length - 1 {
+            if sorted_words[i] == sorted_words[i - 1] {
+                number_of_anagrams+= 1;
+            }
+        } else {
+            if sorted_words[i] == sorted_words[i-1] || sorted_words[i] == sorted_words[i + 1]{
+                number_of_anagrams+= 1;
+            }
+        }
+    }
+
+    return number_of_anagrams;
 }
 
 fn main() {
@@ -25,18 +59,7 @@ fn main() {
     
     let ref filename = args[1];
     let words = read_file(filename);
-    
-    if words.is_err() {
-        println!("Could not read file: {}", filename);
-        process::exit(1);
-    }
-    
-    words.lines();
+    let number_of_anagrams = count_anagrams(words);
 
-
-    match words {
-        Ok(lines) => print(words.iter().cloned().collect()),
-        Err(err) => println!("Bad girl"),
-    }
-
+    println!("Number of anagrams: {}", number_of_anagrams);
 }
