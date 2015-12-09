@@ -13,3 +13,4 @@ _24 days.. 24 solutions.. 24 programming languages!_
 | 5     | Rust          |
 | 6     | Matlab        |
 | 7     | Cobol         |
+| 8     | C             |
