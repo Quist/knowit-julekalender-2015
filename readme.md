@@ -14,3 +14,4 @@ _24 days.. 24 solutions.. 24 programming languages!_
 | 6     | Matlab        |
 | 7     | Cobol         |
 | 8     | C             |
+| 9	| Java		|
